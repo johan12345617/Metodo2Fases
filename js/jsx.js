@@ -1,9 +1,4 @@
-  
-  /* TODO
-   !!! cuando se modifiquen las variables hay que modificar las restriciones ya introducidas �
-  */
-  
-  
+
    $(function(){
     $("#theme").themeswitcher();
     $("#simplex_tabs").tabs();

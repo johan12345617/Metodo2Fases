@@ -615,7 +615,7 @@
    }
    
    jsx_matriz.prototype.finPrimeraFase=function(){
-    //0 todo bien
+    //0 optimo
     //1 artificial en la base con coste igual que 0
     //2 artificial en la base con coste mayor que 0
     var yenlabase=false;
@@ -658,6 +658,31 @@
     var ma02=new jsx_matriz(pr,this.v_solucion);
     return ma02;
    }
+   
+   jsx_matriz.prototype.esMultiple=function(){
+      var numVarBasicas=this.restricciones;
+      var numCeros=0;
+      var optimo=true;
+      for(var i=0;i<this.v_costes_reducidos.length-1;i++){
+       if(this.tipo.toLowerCase()=="max"){
+        if(this.v_costes_reducidos[i]<0){
+         optimo=false;
+        }
+       }
+       else{
+        if(this.v_costes_reducidos[i]>0){
+         optimo=false;
+        }
+       }
+       if(this.v_costes_reducidos[i]==0){
+        numCeros++;
+       }
+      }
+      if(optimo&&numCeros>numVarBasicas){
+       return true;
+      }
+      return false;
+     }
    
    jsx_matriz.prototype.finMgrande=function(){
     //todo mirar finPrimeraFase

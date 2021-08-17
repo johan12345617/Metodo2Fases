@@ -89,9 +89,9 @@
     var cont=$("#jsx_solucion_pasos");
     cont.html("");
     cont.accordion('destroy');
-    jsx_resolver_matriz(ma01,0,tieneartificiales,fase,0);
     if(tieneartificiales){
      if($("#dosfases").attr("checked")){
+      jsx_resolver_matriz(ma01,0,tieneartificiales,fase,0);
       if(ma01.finPrimeraFase()!=2){
        var temp=jsx_pr.clone();
        temp.procesar();
@@ -100,9 +100,9 @@
        jsx_resolver_matriz(ma02,0,false,fase,1);
       }
      }
-     else{
-      
-     }
+    }
+    else{
+      jsx_resolver_matriz(ma01,0,tieneartificiales,fase,1);
     }
     cont.accordion({collapsible:false});
    }
@@ -115,6 +115,7 @@
     var tituloCadOld="Solucion Optima";
     var finmsg="";
     do{
+      
     }while(ma01.avanzar());
     if(check==1){
       var titulo=$("<h3></h3>");

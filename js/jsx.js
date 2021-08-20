@@ -71,13 +71,11 @@
     var antiguocopia;
     var tieneartificiales=false;
     var fase=0;
-    if($("#dosfases").attr("checked")){
-     antiguocopia=antiguo.clone().dosfases();
-     fase=1;
-    }
-    else{
-     antiguocopia=antiguo.clone().mgrande();
-    }
+
+    antiguocopia=antiguo.clone().dosfases();
+    fase=1;
+
+
     if(antiguocopia!=false){
      tieneartificiales=true;
      antiguo=antiguocopia;
@@ -85,12 +83,12 @@
     else{
      fase=0;
     }
+
     var ma01=new jsx_matriz(antiguo);
     var cont=$("#jsx_solucion_pasos");
     cont.html("");
     cont.accordion('destroy');
     if(tieneartificiales){
-     if($("#dosfases").attr("checked")){
       jsx_resolver_matriz(ma01,0,tieneartificiales,fase,0);
       if(ma01.finPrimeraFase()!=2){
        var temp=jsx_pr.clone();
@@ -99,7 +97,6 @@
        var ma02=ma01.getSegundaFase(temp.getFuncionObjetivo());
        jsx_resolver_matriz(ma02,0,false,fase,1);
       }
-     }
     }
     else{
       jsx_resolver_matriz(ma01,0,tieneartificiales,fase,1);

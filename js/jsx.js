@@ -111,8 +111,39 @@
     var tieneartificiales=es;
     var tituloCadOld="Solucion Optima";
     var finmsg="";
-    do{
-      
+    do{      
+      if(ma01.quienEntra()!=null&&ma01.quienSale()!=null){
+      var entra=ma01.quienEntraX();
+      var sale=ma01.quienSaleX();
+      var tituloCad="Iteraci&oacute;n "+((iteracion++)+1)+": entra "+entra+" y sale "+sale;
+     }
+     else{
+      var tituloCad="";
+      if(!tieneartificiales){
+       tituloCad="Iteraci&oacute;n "+(iteracion++)+": no hay m&aacute;s iteraciones";
+       if(ma01.quienEntra()!=null&&ma01.esMultiple()==false){
+       }
+       if(ma01.esMultiple()==true){
+       }
+      }
+      else{
+        tituloCad="Iteraci&oacute;n "+(iteracion++)+": fin de la primera fase";
+        var comotermino=ma01.finPrimeraFase();
+        if(comotermino==0){
+
+        }
+        else if(comotermino==1){
+
+        }
+        else if(comotermino==2){
+          finmsg="No hay solucion";
+          console.log(finmsg);
+          $(document).ready(function() {
+            alert ("No existe solucion optima"); 
+        });
+        }
+      }
+     }
     }while(ma01.avanzar());
     if(check==1){
       var titulo=$("<h3></h3>");
